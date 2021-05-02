@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calucando Troco</title>
+    <style>
+        body {
+            font: normal 18pt arial;
+            text-align: center;
+        }
+        button {
+            padding: 30px;
+        }
+        section {
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculando o troco</h1>
+    <button onclick="clicou()"><strong>Clique para começar</strong></button>
+    <section id="resultado">
+
+    </section>
+    <script>
+        function clicou () {
+            let produto = window.prompt('Qual produto você está comprando?')
+            let valorProduto = Number(window.prompt(`Quanto custa o ${produto} que está comprando?`))
+            let valorPago = Number(window.prompt(`Qual valor você deu no pagamento do ${produto}`))
+            let troco = Number(valorPago - valorProduto)
+            let resultado = document.getElementById('resultado')
+
+            resultado.innerHTML += `Você comprou <strong>${produto}</strong> que custou <strong>${valorProduto.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong></br>`
+            resultado.innerHTML += `Pagou <strong>${valorPago.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong> em dinheiro e vai receber <strong>${troco.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong> de troco</br>` 
+            resultado.innerHTML += `Volte sempre!`
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coversor de Medidas</title>
+    <style>
+        body {
+            font: normal 20pt arial;
+        }
+        button {
+            font: bolder 20pt arial;
+            padding: 20px
+        }
+        section {
+            font: normal 20pt arial;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor de medidas</h1>
+    <button onclick="clicou()">Clique para converter</button>
+    <section id="resultado">
+
+    </section>
+    <script>
+        function clicou () {
+            let metro = Number(window.prompt('Digite uma distância em metros:'));
+            let quilometro = metro / 1000;
+            let hectometro = metro / 100;
+            let decametro = metro / 10;
+            let decimetro = metro * 10;
+            let centimetro = metro * 100;
+            let milimetro = metro * 1000;
+            let resultado = document.getElementById('resultado')
+            resultado.innerHTML = `<h2>A distância de ${metro.toLocaleString('de-DE')} metros corresponde a...</> </br></br>`
+            resultado.innerHTML += `${quilometro.toLocaleString('de-DE')} quilômetros (Km) </br></br>`
+            resultado.innerHTML += `${hectometro.toLocaleString('de-DE')} hectômetros (Hm) </br></br>`
+            resultado.innerHTML += `${decametro.toLocaleString('de-DE')}  decâmetros (Dm) </br></br>`
+            resultado.innerHTML += `${decimetro.toLocaleString('de-DE')}  decímetros (dm) </br></br>`
+            resultado.innerHTML += `${centimetro.toLocaleString('de-DE')} centímetros (cm) </br></br>`
+            resultado.innerHTML += `${milimetro.toLocaleString('de-DE')}  milímetros (mm)`
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprar Dólar</title>
+    <style>
+        body{
+            font: normal 20pt arial;
+            text-align: center;
+        }
+        button {
+            font: bolder 20pt arial;
+            padding: 25px;
+        }
+        section {
+            font: normal 22pt arial;
+            padding: 25px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor de R$ &rarr; US$</h1>
+    <button onclick="clicou()">Converter</button>
+    <p>Clique no botão acima para começar</p>
+    <section id="resultado">
+
+    </section>
+    <script>
+       var cotacaoAtual = Number(window.prompt('Antes de mais nada. Quanto está a cotação do dólar agora?'))
+        function clicou() {
+            let seuDinheiro = Number(window.prompt('Quantos R$ você tem na sua carteira?'))
+            var seuDinheiroEmDolar = seuDinheiro / cotacaoAtual
+            let resultado = document.getElementById('resultado')
+            resultado.innerHTML = `<p>Considerando a cotação do dólar ${cotacaoAtual.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</p>`
+            resultado.innerHTML += `<p>Com ${seuDinheiro.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} você consegue comprar ${seuDinheiroEmDolar.toLocaleString('pt-BR', {style: 'currency', currency: 'USD'})} dólares</p>`
+        }
+    </script>
+</body>
+</html>
